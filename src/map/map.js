@@ -1,5 +1,12 @@
-const map = (array) => {
-  const newArray = [...array]
+const map = (array, callback) => {
+  let newArray = []
+  if (callback) {
+    array.forEach((item) => {
+      newArray.push(callback(item))
+    })
+  } else {
+    newArray = [...array]
+  }
   return newArray
 }
 
