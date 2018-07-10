@@ -28,8 +28,16 @@ it('map(numbers, (item) => item + 5) should return [6, 7, 8]', () => {
   expect(map(numbers, (item) => item + 5)).to.deep.equal([6, 7, 8])
 })
 
-it('map(names, (item) => item.replace(/\\w+/, `Nobody`)) return [`Nobody`, `Nobody`, `Nobody`]', () => {
+it('map(names, (item) => item.replace(/\\w+/, `Nobody`)) should return [`Nobody`, `Nobody`, `Nobody`]', () => {
   expect(
     map(names, (item) => item.replace(/\w+/, 'Nobody'))
   ).to.deep.equal(['Nobody', 'Nobody', 'Nobody'])
+})
+
+it('map(numbers, (item, index) => index) should return [0, 1, 2]', () => {
+  expect(map(numbers, (item, index) => index)).to.deep.equal([0, 1, 2])
+})
+
+it('map(numbers, (item, index, array) => array) should return [[1, 2, 3], [1, 2, 3], [1, 2, 3]]', () => {
+  expect(map(numbers, (item, index, array) => array)).to.deep.equal([[1, 2, 3], [1, 2, 3], [1, 2, 3]])
 })
