@@ -1,16 +1,11 @@
-const filter = (array, callback) => {
-  return (function innerFilter (innerArray, index) {
-    const [head, ...tail] = innerArray
-    if (callback(head, index)) {
-      return innerArray.length === 0 ? [] : [
-        head,
-        ...innerFilter(tail, index + 1)
-      ]
+const filter = (array = [], callback) => {
+  let newArray = []
+  for (let i = 0; i < array.length; i++) {
+    if (callback(array[i], i, array)) {
+      newArray.push(array[i])
     }
-    return innerArray.length === 0 ? [] : [
-      ...innerFilter(tail, index + 1)
-    ]
-  })(array, 0)
+  }
+  return newArray
 }
 
 export default filter
